@@ -671,7 +671,7 @@ copy_pass         (pass_t *pass)
 {
     pass_t *new;
 
-    new = g_try_new (pass_t, 1);
+    new = g_new (pass_t, 1);
 
     if (new != NULL) {
         new->aos = pass->aos;

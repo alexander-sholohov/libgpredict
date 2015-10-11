@@ -39,7 +39,13 @@
 /* Ported to C by N. Kyriazis  April 6  2001 */
 
 #include <glib.h>    
+
+#if GLIB_MAJOR_VERSION == 1 && GLIB_MINOR_VERSION == 1
+#define g_ascii_strtod(X,Y) atof(X)
+#else
 #include <glib/gprintf.h>
+#endif
+
 #include "sgp4sdp4.h"
 
 /* Calculates the checksum mod 10 of a line from a TLE set and */
