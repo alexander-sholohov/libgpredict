@@ -33,6 +33,10 @@
 #include "gtk-sat-data.h"
 #include "sat-vis.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /** \brief Brief satellite pass info. */
 typedef struct {
@@ -111,6 +115,10 @@ void free_pass         (pass_t *pass);
 void free_passes       (GSList *passes);
 void free_pass_detail  (pass_detail_t *detail);
 void free_pass_details (GSList *details);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

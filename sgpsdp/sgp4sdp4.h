@@ -15,6 +15,10 @@
 #include <unistd.h>
 #undef select
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /** Type definitions **/
 
@@ -355,6 +359,10 @@ void    UTC_Calendar_Now(struct tm *cdate);
 /* solar.c */
 void    Calculate_Solar_Position(double _time, vector_t *solar_vector);
 int     Sat_Eclipsed(vector_t *pos, vector_t *sol, double *depth);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

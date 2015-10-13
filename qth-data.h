@@ -29,7 +29,12 @@
 #define __QTH_DATA_H__ 1
 
 #include <glib.h>
+
 #include "sgpsdp/sgp4sdp4.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
 /** \brief QTH data structure in human readable form. */
@@ -46,6 +51,10 @@ typedef struct {
 
 
 void qth_data_free (qth_t *qth);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif
