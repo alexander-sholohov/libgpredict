@@ -55,4 +55,4 @@ INSTALL(FILES
         DESTINATION "include/gpredict/sgpsdp"
  )
 
-export(TARGETS gpredict FILE ${CMAKE_SOURCE_DIR}/extension/gpredict-exports.cmake)
+export(TARGETS gpredict FILE ${CMAKE_SOURCE_DIR}/extensions/gpredict-exports.cmake)
