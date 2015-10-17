@@ -2153,6 +2153,84 @@ fail:
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_TQth_lat) {
+  TQth *arg1 = (TQth *) 0 ;
+  zval **args[1];
+  double result;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_TQth, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of TQth_lat. Expected SWIGTYPE_p_TQth");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  result = (double)((TQth const *)arg1)->lat();
+  {
+    ZVAL_DOUBLE(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
+ZEND_NAMED_FUNCTION(_wrap_TQth_lon) {
+  TQth *arg1 = (TQth *) 0 ;
+  zval **args[1];
+  double result;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_TQth, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of TQth_lon. Expected SWIGTYPE_p_TQth");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  result = (double)((TQth const *)arg1)->lon();
+  {
+    ZVAL_DOUBLE(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
+ZEND_NAMED_FUNCTION(_wrap_TQth_alt) {
+  TQth *arg1 = (TQth *) 0 ;
+  zval **args[1];
+  double result;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_TQth, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of TQth_alt. Expected SWIGTYPE_p_TQth");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  result = (double)((TQth const *)arg1)->alt();
+  {
+    ZVAL_DOUBLE(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
 ZEND_NAMED_FUNCTION(_wrap_new_TSat) {
   TSat *result = 0 ;
   
@@ -2618,6 +2696,9 @@ static zend_function_entry satpredict_functions[] = {
  SWIG_ZEND_NAMED_FE(tqth_initfromlatlon,_wrap_TQth_initFromLatLon,NULL)
  SWIG_ZEND_NAMED_FE(tqth_initfrommaidenheadlocator,_wrap_TQth_initFromMaidenheadLocator,NULL)
  SWIG_ZEND_NAMED_FE(tqth_converttomaidenheadlocator,_wrap_TQth_convertToMaidenheadLocator,NULL)
+ SWIG_ZEND_NAMED_FE(tqth_lat,_wrap_TQth_lat,NULL)
+ SWIG_ZEND_NAMED_FE(tqth_lon,_wrap_TQth_lon,NULL)
+ SWIG_ZEND_NAMED_FE(tqth_alt,_wrap_TQth_alt,NULL)
  SWIG_ZEND_NAMED_FE(new_tsat,_wrap_new_TSat,NULL)
  SWIG_ZEND_NAMED_FE(tsat_initfromtlelines,_wrap_TSat_initFromTLELines,NULL)
  SWIG_ZEND_NAMED_FE(new_ttime,_wrap_new_TTime,NULL)

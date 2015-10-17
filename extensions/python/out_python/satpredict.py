@@ -154,6 +154,9 @@ class TQth(_object):
     def initFromLatLon(self, *args): return _satpredict.TQth_initFromLatLon(self, *args)
     def initFromMaidenheadLocator(self, *args): return _satpredict.TQth_initFromMaidenheadLocator(self, *args)
     def convertToMaidenheadLocator(self): return _satpredict.TQth_convertToMaidenheadLocator(self)
+    def lat(self): return _satpredict.TQth_lat(self)
+    def lon(self): return _satpredict.TQth_lon(self)
+    def alt(self): return _satpredict.TQth_alt(self)
 TQth_swigregister = _satpredict.TQth_swigregister
 TQth_swigregister(TQth)
 

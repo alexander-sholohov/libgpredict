@@ -4311,6 +4311,72 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TQth_lat(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  TQth *arg1 = (TQth *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:TQth_lat",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TQth, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TQth_lat" "', argument " "1"" of type '" "TQth const *""'"); 
+  }
+  arg1 = reinterpret_cast< TQth * >(argp1);
+  result = (double)((TQth const *)arg1)->lat();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TQth_lon(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  TQth *arg1 = (TQth *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:TQth_lon",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TQth, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TQth_lon" "', argument " "1"" of type '" "TQth const *""'"); 
+  }
+  arg1 = reinterpret_cast< TQth * >(argp1);
+  result = (double)((TQth const *)arg1)->lon();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TQth_alt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  TQth *arg1 = (TQth *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:TQth_alt",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TQth, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TQth_alt" "', argument " "1"" of type '" "TQth const *""'"); 
+  }
+  arg1 = reinterpret_cast< TQth * >(argp1);
+  result = (double)((TQth const *)arg1)->alt();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *TQth_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
@@ -4771,6 +4837,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TQth_initFromLatLon", _wrap_TQth_initFromLatLon, METH_VARARGS, NULL},
 	 { (char *)"TQth_initFromMaidenheadLocator", _wrap_TQth_initFromMaidenheadLocator, METH_VARARGS, NULL},
 	 { (char *)"TQth_convertToMaidenheadLocator", _wrap_TQth_convertToMaidenheadLocator, METH_VARARGS, NULL},
+	 { (char *)"TQth_lat", _wrap_TQth_lat, METH_VARARGS, NULL},
+	 { (char *)"TQth_lon", _wrap_TQth_lon, METH_VARARGS, NULL},
+	 { (char *)"TQth_alt", _wrap_TQth_alt, METH_VARARGS, NULL},
 	 { (char *)"TQth_swigregister", TQth_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_TSat", _wrap_new_TSat, METH_VARARGS, NULL},
 	 { (char *)"delete_TSat", _wrap_delete_TSat, METH_VARARGS, NULL},

@@ -267,6 +267,18 @@ class TQth {
 	function convertToMaidenheadLocator() {
 		return TQth_convertToMaidenheadLocator($this->_cPtr);
 	}
+
+	function lat() {
+		return TQth_lat($this->_cPtr);
+	}
+
+	function lon() {
+		return TQth_lon($this->_cPtr);
+	}
+
+	function alt() {
+		return TQth_alt($this->_cPtr);
+	}
 }
 
 class TSat {
