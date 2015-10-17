@@ -34,6 +34,25 @@ bool TQth::initFromLatLon( double lat, double lon, double alt )
 }
 
 //-----------------------------------------------------------------------------
+double TQth::lat() const
+{
+    return m_qth.lat;
+}
+
+//-----------------------------------------------------------------------------
+double TQth::lon() const
+{
+    return m_qth.lon;
+}
+
+//-----------------------------------------------------------------------------
+double TQth::alt() const
+{
+    return m_qth.alt;
+}
+
+
+//-----------------------------------------------------------------------------
 static bool isMajorCharOk(char ch)
 {
     return (ch >= 'A' && ch <='R');
