@@ -15,8 +15,10 @@ find_package(Glib REQUIRED)
 include_directories(${GLIB_INCLUDE_DIR})
 include_directories(${GLIBCONFIG_INCLUDE_DIR})
 
+set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-add_library(gpredict SHARED
+add_library(gpredict STATIC
     sgpsdp/solar.c
     sgpsdp/sgp_obs.c
     sgpsdp/sgp_in.c
