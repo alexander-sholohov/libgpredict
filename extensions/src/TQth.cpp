@@ -51,6 +51,30 @@ double TQth::alt() const
     return m_qth.alt;
 }
 
+//-----------------------------------------------------------------------------
+double TQth::distanceBetween( TQth const& other ) const
+{
+    //
+    double lat1 = m_qth.lat * pi / 180.0;
+    double lat2 = other.m_qth.lat * pi / 180.0;
+    double long1 = m_qth.lon * pi / 180.0;
+    double long2 = other.m_qth.lon * pi / 180.0;
+
+    double cl1 = cos(lat1);
+    double cl2 = cos(lat2);
+    double sl1 = sin(lat1);
+    double sl2 = sin(lat2);
+    double delta = long2 - long1;
+    double cdelta = cos(delta);
+    double sdelta = sin(delta);
+
+    double y = sqrt(pow(cl2*sdelta,2)+pow(cl1*sl2-sl1*cl2*cdelta,2));
+    double x = sl1*sl2+cl1*cl2*cdelta;
+    double ad = atan2(y,x);
+    double dist = ad* 6372795;
+
+    return dist;
+}
 
 //-----------------------------------------------------------------------------
 static bool isMajorCharOk(char ch)
