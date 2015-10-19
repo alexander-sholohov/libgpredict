@@ -14,7 +14,6 @@ public:
     sat_t *get() { return &m_sat; }
     sat_t *cget() const { return const_cast<sat_t*>(&m_sat); }
     sat_t& ref() { return m_sat; }
-    void select_ephemeris();
 #endif
 
 

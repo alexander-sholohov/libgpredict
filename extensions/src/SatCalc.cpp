@@ -87,7 +87,12 @@ bool SatCalc::findFirst(TSat const& sat, TQth const& qth, TTime const& statTime,
 bool SatCalc::findNext(PassItem* passItem)
 {
     if( !m_next )
+    {
+        listFree();
+        m_first = NULL;
+        m_next = NULL;
         return false;
+    }
 
     passItem->initFromPass( (pass_t*)(m_next->data) );
     m_next = g_slist_next(m_next);

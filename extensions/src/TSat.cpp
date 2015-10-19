@@ -45,8 +45,3 @@ bool TSat::initFromTLELines( const char* satName, const char* line1, const char*
     return res == 1;
 }
 
-//-----------------------------------------------------------------------------
-void TSat::select_ephemeris()
-{
-    ::select_ephemeris(&m_sat);
-}
