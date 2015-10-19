@@ -82,6 +82,14 @@ typedef struct {
 } pass_detail_t;
 
 
+/** \brief Global settings  emulation */
+typedef struct {
+    double min_elevation;
+    double pred_resolution;
+    double pred_num_entries;
+} settings_t;
+
+
 /* type casting macros */
 #define PASS(x) ((pass_t *) x)
 #define PASS_DETAIL(x) ((pass_detail_t *) x)
@@ -96,14 +104,14 @@ gdouble find_los           (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt
 gdouble find_prev_aos      (sat_t *sat, qth_t *qth, gdouble start);
 
 /* next events */
-pass_t *get_next_pass      (sat_t *sat, qth_t *qth, gdouble maxdt);
-GSList *get_next_passes    (sat_t *sat, qth_t *qth, gdouble maxdt, guint num);
+pass_t *get_next_pass      (sat_t *sat, qth_t *qth, gdouble maxdt, settings_t *settings);
+GSList *get_next_passes    (sat_t *sat, qth_t *qth, gdouble maxdt, guint num, settings_t *settings);
 
 /* future events */
-pass_t *get_pass           (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt);
-GSList *get_passes         (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, guint num);
-pass_t *get_current_pass   (sat_t *sat, qth_t *qth, gdouble start);
-pass_t *get_pass_no_min_el (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt);
+pass_t *get_pass           (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, settings_t *settings);
+GSList *get_passes         (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, guint num, settings_t *settings);
+pass_t *get_current_pass   (sat_t *sat, qth_t *qth, gdouble start, settings_t *settings);
+pass_t *get_pass_no_min_el (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, settings_t *settings);
 
 /* copying */
 pass_t        *copy_pass         (pass_t *pass);
@@ -115,6 +123,9 @@ void free_pass         (pass_t *pass);
 void free_passes       (GSList *passes);
 void free_pass_detail  (pass_detail_t *detail);
 void free_pass_details (GSList *details);
+
+/* initailize local settings */
+void init_settings_by_default(settings_t *settings);
 
 #ifdef __cplusplus
 }

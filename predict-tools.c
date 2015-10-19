@@ -347,7 +347,7 @@ find_prev_aos (sat_t *sat, qth_t *qth, gdouble start)
  *
  */
 pass_t *
-get_next_pass   (sat_t *sat, qth_t *qth, gdouble maxdt)
+get_next_pass   (sat_t *sat, qth_t *qth, gdouble maxdt, settings_t *settings)
 {
     gdouble now;
 
@@ -356,7 +356,7 @@ get_next_pass   (sat_t *sat, qth_t *qth, gdouble maxdt)
         the get_pass function */
     now = get_current_daynum ();
 
-    return get_pass (sat, qth, now, maxdt);
+    return get_pass (sat, qth, now, maxdt, settings);
 }
 
 
@@ -377,7 +377,7 @@ get_next_pass   (sat_t *sat, qth_t *qth, gdouble maxdt)
  *       is GtkSatList).
  */
 GSList *
-get_next_passes (sat_t *sat, qth_t *qth, gdouble maxdt, guint num)
+get_next_passes (sat_t *sat, qth_t *qth, gdouble maxdt, guint num, settings_t *settings)
 {
     gdouble now;
 
@@ -386,7 +386,7 @@ get_next_passes (sat_t *sat, qth_t *qth, gdouble maxdt, guint num)
         the get_pass function */
     now = get_current_daynum ();
 
-    return get_passes (sat, qth, now, maxdt, num);
+    return get_passes (sat, qth, now, maxdt, num, settings);
 }
 
 
@@ -412,7 +412,7 @@ get_next_passes (sat_t *sat, qth_t *qth, gdouble maxdt, guint num)
  *       reversed
  */
 pass_t *
-get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
+get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt, settings_t *settings)
 {
     gdouble        aos = 0.0;    /* time of AOS */
     gdouble        tca = 0.0;    /* time of TCA */
@@ -435,7 +435,7 @@ get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
 
     /* get time resolution; sat-cfg stores it in seconds */
     /* FIXME tres = sat_cfg_get_int (SAT_CFG_INT_PRED_RESOLUTION) / 86400.0; */
-    tres = 10.0 / 86400.0;
+    tres = settings->pred_resolution / 86400.0;
 
     /* loop until we find a pass with elevation > SAT_CFG_INT_PRED_MIN_EL
         or we run out of time
@@ -475,7 +475,7 @@ get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
 
             /* get time step, which will give us the max number of entries */
             /* FIXME step = dt / sat_cfg_get_int (SAT_CFG_INT_PRED_NUM_ENTRIES); */
-            step = dt / 20;
+            step = dt / settings->pred_num_entries;
 
             /* but if this is smaller than the required resolution
                 we go with the resolution
@@ -579,7 +579,7 @@ get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
 
             /* check whether this pass is good */
             /* FIXME if (max_el >= sat_cfg_get_int (SAT_CFG_INT_PRED_MIN_EL)) { */
-            if (max_el >= 10) {
+            if (max_el >= settings->min_elevation) {
                 done = TRUE;
             }
             else {
@@ -619,7 +619,7 @@ get_pass   (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
  *       reversed
  */
 GSList *
-get_passes (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, guint num)
+get_passes (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, guint num, settings_t *settings)
 {
     GSList *passes = NULL;
     pass_t *pass = NULL;
@@ -634,7 +634,7 @@ get_passes (sat_t *sat, qth_t *qth, gdouble start, gdouble maxdt, guint num)
     t = start;
 
     for (i = 0; i < num; i++) {
-        pass = get_pass (sat, qth, t, maxdt);
+        pass = get_pass (sat, qth, t, maxdt, settings);
 
         if (pass != NULL) {
             passes = g_slist_prepend (passes, pass);
@@ -862,7 +862,7 @@ free_pass_details (GSList *details)
  *       reversed
  */
 pass_t *
-get_pass_no_min_el (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
+get_pass_no_min_el (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt, settings_t *settings)
 {
     gdouble        aos = 0.0;    /* time of AOS */
     gdouble        tca = 0.0;    /* time of TCA */
@@ -885,7 +885,7 @@ get_pass_no_min_el (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
 
     /* get time resolution; sat-cfg stores it in seconds */
     /* FIXME tres = sat_cfg_get_int (SAT_CFG_INT_PRED_RESOLUTION) / 86400.0; */
-    tres = 10.0 / 86400.0;
+    tres = settings->pred_resolution / 86400.0;
 
 
     aos = find_aos (sat, qth, t0, maxdt);
@@ -908,7 +908,7 @@ get_pass_no_min_el (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
 
         /* get time step, which will give us the max number of entries */
         /* FIXME step = dt / sat_cfg_get_int (SAT_CFG_INT_PRED_NUM_ENTRIES); */
-        step = dt / 20;
+        step = dt / settings->pred_num_entries;
 
         /* but if this is smaller than the required resolution
             we go with the resolution
@@ -1035,7 +1035,7 @@ get_pass_no_min_el (sat_t *sat_in, qth_t *qth, gdouble start, gdouble maxdt)
  *
  */
 pass_t *
-get_current_pass (sat_t *sat_in, qth_t *qth, gdouble start)
+get_current_pass (sat_t *sat_in, qth_t *qth, gdouble start, settings_t *settings)
 {
     gdouble t;
     sat_t  *sat,sat_working;
@@ -1064,5 +1064,14 @@ get_current_pass (sat_t *sat_in, qth_t *qth, gdouble start)
         t -= 0.007; // +10 min
     }
 
-    return get_pass_no_min_el (sat, qth, t, 0.0);
+    return get_pass_no_min_el (sat, qth, t, 0.0, settings);
+}
+
+/** \brief Initialize settings by default values
+ */
+void init_settings_by_default(settings_t *settings)
+{
+    settings->min_elevation = 1.0;
+    settings->pred_num_entries = 20.0;
+    settings->pred_resolution = 10.0;
 }
