@@ -10,6 +10,8 @@ public:
 
     bool initFromTLELines( const char* staName, const char* line1, const char* line2 );
 
+    char* satName() const;
+
 #ifndef SWIG
     sat_t *get() { return &m_sat; }
     sat_t *cget() const { return const_cast<sat_t*>(&m_sat); }

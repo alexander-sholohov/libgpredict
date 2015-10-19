@@ -5,6 +5,8 @@
 
 #include "TSat.h"
 #include "gtk-sat-data.h"
+#include "utils.h"
+
 
 //-----------------------------------------------------------------------------
 TSat::TSat()
@@ -45,3 +47,8 @@ bool TSat::initFromTLELines( const char* satName, const char* line1, const char*
     return res == 1;
 }
 
+//-----------------------------------------------------------------------------
+char* TSat::satName() const
+{
+    return mystrdup(m_sat.tle.sat_name);
+}
