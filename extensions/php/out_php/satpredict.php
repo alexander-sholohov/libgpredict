@@ -323,6 +323,10 @@ class TSat {
 	function initFromTLELines($staName,$line1,$line2) {
 		return TSat_initFromTLELines($this->_cPtr,$staName,$line1,$line2);
 	}
+
+	function satName() {
+		return TSat_satName($this->_cPtr);
+	}
 }
 
 class TTime {

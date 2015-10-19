@@ -4562,6 +4562,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TSat_satName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  TSat *arg1 = (TSat *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:TSat_satName",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TSat, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TSat_satName" "', argument " "1"" of type '" "TSat const *""'"); 
+  }
+  arg1 = reinterpret_cast< TSat * >(argp1);
+  result = (char *)((TSat const *)arg1)->satName();
+  {
+    if( !result) {
+      return SWIG_Py_Void(); 
+    }
+    resultobj = PyString_FromString((const char *)result);
+    free(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *TSat_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
@@ -4933,6 +4961,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_TSat", _wrap_new_TSat, METH_VARARGS, NULL},
 	 { (char *)"delete_TSat", _wrap_delete_TSat, METH_VARARGS, NULL},
 	 { (char *)"TSat_initFromTLELines", _wrap_TSat_initFromTLELines, METH_VARARGS, NULL},
+	 { (char *)"TSat_satName", _wrap_TSat_satName, METH_VARARGS, NULL},
 	 { (char *)"TSat_swigregister", TSat_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_TTime", _wrap_new_TTime, METH_VARARGS, NULL},
 	 { (char *)"delete_TTime", _wrap_delete_TTime, METH_VARARGS, NULL},

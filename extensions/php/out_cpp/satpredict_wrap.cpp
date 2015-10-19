@@ -2415,6 +2415,37 @@ fail:
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_TSat_satName) {
+  TSat *arg1 = (TSat *) 0 ;
+  zval **args[1];
+  char *result = 0 ;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_TSat, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of TSat_satName. Expected SWIGTYPE_p_TSat");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  result = (char *)((TSat const *)arg1)->satName();
+  {
+    if(!result) {
+      ZVAL_NULL(return_value);
+    } else {
+      ZVAL_STRING(return_value, (char *)result, 1);
+    }
+    free(result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
 ZEND_NAMED_FUNCTION(_wrap_new_TTime) {
   TTime *result = 0 ;
   
@@ -2792,6 +2823,7 @@ static zend_function_entry satpredict_functions[] = {
  SWIG_ZEND_NAMED_FE(tqth_distancebetween,_wrap_TQth_distanceBetween,NULL)
  SWIG_ZEND_NAMED_FE(new_tsat,_wrap_new_TSat,NULL)
  SWIG_ZEND_NAMED_FE(tsat_initfromtlelines,_wrap_TSat_initFromTLELines,NULL)
+ SWIG_ZEND_NAMED_FE(tsat_satname,_wrap_TSat_satName,NULL)
  SWIG_ZEND_NAMED_FE(new_ttime,_wrap_new_TTime,NULL)
  SWIG_ZEND_NAMED_FE(ttime_initfromnow,_wrap_TTime_initFromNow,NULL)
  SWIG_ZEND_NAMED_FE(ttime_initfromstringutc,_wrap_TTime_initFromStringUTC,NULL)

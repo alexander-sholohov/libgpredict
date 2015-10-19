@@ -176,6 +176,7 @@ class TSat(_object):
     __swig_destroy__ = _satpredict.delete_TSat
     __del__ = lambda self : None;
     def initFromTLELines(self, *args): return _satpredict.TSat_initFromTLELines(self, *args)
+    def satName(self): return _satpredict.TSat_satName(self)
 TSat_swigregister = _satpredict.TSat_swigregister
 TSat_swigregister(TSat)
 

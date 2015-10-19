@@ -70,6 +70,7 @@ ZEND_NAMED_FUNCTION(_wrap_TQth_alt);
 ZEND_NAMED_FUNCTION(_wrap_TQth_distanceBetween);
 ZEND_NAMED_FUNCTION(_wrap_new_TSat);
 ZEND_NAMED_FUNCTION(_wrap_TSat_initFromTLELines);
+ZEND_NAMED_FUNCTION(_wrap_TSat_satName);
 ZEND_NAMED_FUNCTION(_wrap_new_TTime);
 ZEND_NAMED_FUNCTION(_wrap_TTime_initFromNow);
 ZEND_NAMED_FUNCTION(_wrap_TTime_initFromStringUTC);
