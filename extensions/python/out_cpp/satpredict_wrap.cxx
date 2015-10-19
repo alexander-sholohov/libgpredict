@@ -3644,6 +3644,58 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SatCalc_minElevation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SatCalc *arg1 = (SatCalc *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:SatCalc_minElevation",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SatCalc, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SatCalc_minElevation" "', argument " "1"" of type '" "SatCalc const *""'"); 
+  }
+  arg1 = reinterpret_cast< SatCalc * >(argp1);
+  result = (double)((SatCalc const *)arg1)->minElevation();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SatCalc_set_minElevation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  SatCalc *arg1 = (SatCalc *) 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SatCalc_set_minElevation",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_SatCalc, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SatCalc_set_minElevation" "', argument " "1"" of type '" "SatCalc *""'"); 
+  }
+  arg1 = reinterpret_cast< SatCalc * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SatCalc_set_minElevation" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  (arg1)->set_minElevation(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *SatCalc_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
@@ -4377,6 +4429,40 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TQth_distanceBetween(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  TQth *arg1 = (TQth *) 0 ;
+  TQth *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:TQth_distanceBetween",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_TQth, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TQth_distanceBetween" "', argument " "1"" of type '" "TQth const *""'"); 
+  }
+  arg1 = reinterpret_cast< TQth * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_TQth,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TQth_distanceBetween" "', argument " "2"" of type '" "TQth const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TQth_distanceBetween" "', argument " "2"" of type '" "TQth const &""'"); 
+  }
+  arg2 = reinterpret_cast< TQth * >(argp2);
+  result = (double)((TQth const *)arg1)->distanceBetween((TQth const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *TQth_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
@@ -4806,6 +4892,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SatCalc_getSatPosition", _wrap_SatCalc_getSatPosition, METH_VARARGS, NULL},
 	 { (char *)"SatCalc_maxDaysLookAhead", _wrap_SatCalc_maxDaysLookAhead, METH_VARARGS, NULL},
 	 { (char *)"SatCalc_set_maxDaysLookAhead", _wrap_SatCalc_set_maxDaysLookAhead, METH_VARARGS, NULL},
+	 { (char *)"SatCalc_minElevation", _wrap_SatCalc_minElevation, METH_VARARGS, NULL},
+	 { (char *)"SatCalc_set_minElevation", _wrap_SatCalc_set_minElevation, METH_VARARGS, NULL},
 	 { (char *)"SatCalc_swigregister", SatCalc_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_PassItem", _wrap_new_PassItem, METH_VARARGS, NULL},
 	 { (char *)"delete_PassItem", _wrap_delete_PassItem, METH_VARARGS, NULL},
@@ -4840,6 +4928,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TQth_lat", _wrap_TQth_lat, METH_VARARGS, NULL},
 	 { (char *)"TQth_lon", _wrap_TQth_lon, METH_VARARGS, NULL},
 	 { (char *)"TQth_alt", _wrap_TQth_alt, METH_VARARGS, NULL},
+	 { (char *)"TQth_distanceBetween", _wrap_TQth_distanceBetween, METH_VARARGS, NULL},
 	 { (char *)"TQth_swigregister", TQth_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_TSat", _wrap_new_TSat, METH_VARARGS, NULL},
 	 { (char *)"delete_TSat", _wrap_delete_TSat, METH_VARARGS, NULL},

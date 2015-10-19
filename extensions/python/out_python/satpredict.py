@@ -87,6 +87,8 @@ class SatCalc(_object):
     def getSatPosition(self, *args): return _satpredict.SatCalc_getSatPosition(self, *args)
     def maxDaysLookAhead(self): return _satpredict.SatCalc_maxDaysLookAhead(self)
     def set_maxDaysLookAhead(self, *args): return _satpredict.SatCalc_set_maxDaysLookAhead(self, *args)
+    def minElevation(self): return _satpredict.SatCalc_minElevation(self)
+    def set_minElevation(self, *args): return _satpredict.SatCalc_set_minElevation(self, *args)
 SatCalc_swigregister = _satpredict.SatCalc_swigregister
 SatCalc_swigregister(SatCalc)
 
@@ -157,6 +159,7 @@ class TQth(_object):
     def lat(self): return _satpredict.TQth_lat(self)
     def lon(self): return _satpredict.TQth_lon(self)
     def alt(self): return _satpredict.TQth_alt(self)
+    def distanceBetween(self, *args): return _satpredict.TQth_distanceBetween(self, *args)
 TQth_swigregister = _satpredict.TQth_swigregister
 TQth_swigregister(TQth)
 

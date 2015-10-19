@@ -1418,6 +1418,62 @@ fail:
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_SatCalc_minElevation) {
+  SatCalc *arg1 = (SatCalc *) 0 ;
+  zval **args[1];
+  double result;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_SatCalc, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of SatCalc_minElevation. Expected SWIGTYPE_p_SatCalc");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  result = (double)((SatCalc const *)arg1)->minElevation();
+  {
+    ZVAL_DOUBLE(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
+ZEND_NAMED_FUNCTION(_wrap_SatCalc_set_minElevation) {
+  SatCalc *arg1 = (SatCalc *) 0 ;
+  double arg2 ;
+  zval **args[2];
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_SatCalc, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of SatCalc_set_minElevation. Expected SWIGTYPE_p_SatCalc");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  
+  /*@SWIG:C:\Prog_Files\swigwin-2.0.11\Lib\php\utils.i,52,CONVERT_FLOAT_IN@*/
+  convert_to_double_ex(args[1]);
+  arg2 = (double) Z_DVAL_PP(args[1]);
+  /*@SWIG@*/;
+  
+  (arg1)->set_minElevation(arg2);
+  
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
 ZEND_NAMED_FUNCTION(_wrap_new_PassItem) {
   PassItem *result = 0 ;
   
@@ -2231,6 +2287,38 @@ fail:
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_TQth_distanceBetween) {
+  TQth *arg1 = (TQth *) 0 ;
+  TQth *arg2 = 0 ;
+  zval **args[2];
+  double result;
+  
+  SWIG_ResetError();
+  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_TQth, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of TQth_distanceBetween. Expected SWIGTYPE_p_TQth");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  {
+    if(SWIG_ConvertPtr(*args[1], (void **) &arg2, SWIGTYPE_p_TQth, 0) < 0 || arg2 == NULL) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 2 of TQth_distanceBetween. Expected SWIGTYPE_p_TQth");
+    }
+  }
+  result = (double)((TQth const *)arg1)->distanceBetween((TQth const &)*arg2);
+  {
+    ZVAL_DOUBLE(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL();
+}
+
+
 ZEND_NAMED_FUNCTION(_wrap_new_TSat) {
   TSat *result = 0 ;
   
@@ -2671,6 +2759,8 @@ static zend_function_entry satpredict_functions[] = {
  SWIG_ZEND_NAMED_FE(satcalc_getsatposition,_wrap_SatCalc_getSatPosition,NULL)
  SWIG_ZEND_NAMED_FE(satcalc_maxdayslookahead,_wrap_SatCalc_maxDaysLookAhead,NULL)
  SWIG_ZEND_NAMED_FE(satcalc_set_maxdayslookahead,_wrap_SatCalc_set_maxDaysLookAhead,NULL)
+ SWIG_ZEND_NAMED_FE(satcalc_minelevation,_wrap_SatCalc_minElevation,NULL)
+ SWIG_ZEND_NAMED_FE(satcalc_set_minelevation,_wrap_SatCalc_set_minElevation,NULL)
  SWIG_ZEND_NAMED_FE(new_passitem,_wrap_new_PassItem,NULL)
  SWIG_ZEND_NAMED_FE(passitem_aos,_wrap_PassItem_aos,NULL)
  SWIG_ZEND_NAMED_FE(passitem_los,_wrap_PassItem_los,NULL)
@@ -2699,6 +2789,7 @@ static zend_function_entry satpredict_functions[] = {
  SWIG_ZEND_NAMED_FE(tqth_lat,_wrap_TQth_lat,NULL)
  SWIG_ZEND_NAMED_FE(tqth_lon,_wrap_TQth_lon,NULL)
  SWIG_ZEND_NAMED_FE(tqth_alt,_wrap_TQth_alt,NULL)
+ SWIG_ZEND_NAMED_FE(tqth_distancebetween,_wrap_TQth_distanceBetween,NULL)
  SWIG_ZEND_NAMED_FE(new_tsat,_wrap_new_TSat,NULL)
  SWIG_ZEND_NAMED_FE(tsat_initfromtlelines,_wrap_TSat_initFromTLELines,NULL)
  SWIG_ZEND_NAMED_FE(new_ttime,_wrap_new_TTime,NULL)

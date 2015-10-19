@@ -77,6 +77,14 @@ class SatCalc {
 	function set_maxDaysLookAhead($value) {
 		SatCalc_set_maxDaysLookAhead($this->_cPtr,$value);
 	}
+
+	function minElevation() {
+		return SatCalc_minElevation($this->_cPtr);
+	}
+
+	function set_minElevation($value) {
+		SatCalc_set_minElevation($this->_cPtr,$value);
+	}
 }
 
 class PassItem {
@@ -278,6 +286,10 @@ class TQth {
 
 	function alt() {
 		return TQth_alt($this->_cPtr);
+	}
+
+	function distanceBetween($other) {
+		return TQth_distanceBetween($this->_cPtr,$other);
 	}
 }
 
