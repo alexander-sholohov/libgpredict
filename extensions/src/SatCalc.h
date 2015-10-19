@@ -26,6 +26,9 @@ public:
     double maxDaysLookAhead() const;
     void set_maxDaysLookAhead( double value );
 
+    double minElevation() const;
+    void set_minElevation( double value );
+
 #ifndef SWIG
 #endif
 
@@ -34,6 +37,7 @@ private:
     GSList *m_first;
     GSList *m_next;
     double m_maxDaysLookAhead;
+    double m_minElevation;
 
     void listFree();
     

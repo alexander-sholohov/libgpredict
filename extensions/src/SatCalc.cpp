@@ -16,6 +16,7 @@ SatCalc::SatCalc()
     m_first = NULL;
     m_next = NULL;
     m_maxDaysLookAhead = 5;
+    m_minElevation = 1.0;
 }
 
 //-----------------------------------------------------------------------------
@@ -39,7 +40,12 @@ bool SatCalc::getCurrentPass(TSat const& sat, TQth const& qth, PassItem* passIte
 {
     TTime time;
     time.initFromNow();
-    pass_t *pass = get_current_pass (sat.cget(), qth.cget(), time.getJulianUTC());
+
+    settings_t settings;
+    ::init_settings_by_default(&settings);
+    settings.min_elevation = m_minElevation;
+
+    pass_t *pass = get_current_pass (sat.cget(), qth.cget(), time.getJulianUTC(), &settings);
     if( !pass )
         return false;
 
@@ -63,7 +69,11 @@ bool SatCalc::findFirst(TSat const& sat, TQth const& qth, TTime const& statTime,
     m_first = NULL;
     m_next = NULL;
 
-    GSList *list = get_passes(sat.cget(), qth.cget(), statTime.getJulianUTC(), m_maxDaysLookAhead, limiter);
+    settings_t settings;
+    ::init_settings_by_default(&settings);
+    settings.min_elevation = m_minElevation;
+
+    GSList *list = get_passes(sat.cget(), qth.cget(), statTime.getJulianUTC(), m_maxDaysLookAhead, limiter, &settings);
     if( !list )
         return false;
 
@@ -96,3 +106,17 @@ void SatCalc::set_maxDaysLookAhead( double value )
 {
     m_maxDaysLookAhead = value;
 }
+
+//-----------------------------------------------------------------------------
+double SatCalc::minElevation() const
+{
+    return m_minElevation;
+}
+
+//-----------------------------------------------------------------------------
+void SatCalc::set_minElevation( double value )
+{
+    m_minElevation = value;
+}
+
+
